@@ -1,0 +1,3 @@
+steps:
+    - name: 'gcr.io/eventually-tools/warframelootsubmit'
+      args: ['clone', 'https://github.com/EventuallyClan/WarframeLootSubmit']
