@@ -1,0 +1,60 @@
+openapi: "3.0.0"
+info:
+  title: Warframe Loot Submission Server API Spec
+  version: 0.0.2
+paths:
+  /:
+    post:
+      operationId: addLootRecord
+      description: Create a new loot record in EventuallyDB
+      requestBody:
+          description: List of Loot received from a mission.
+          required: true
+          content:
+            application/yaml:
+              schema: 
+                $ref: '#/components/schemas/LootRecord'
+      responses:
+        '200':
+          description: Add Loot Record Success      
+        default:
+          description: Something went wrong
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Loot:
+      type: object
+      required:
+        - name
+        - count
+    LootRecord:
+      type: object
+      required:
+        - username
+        - mission_name
+        - loot_list
+      properties:
+        username:
+          type: string
+        mission_name:
+          type: string
+        wave_count:
+          type: integer
+        loot_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/Loot'
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

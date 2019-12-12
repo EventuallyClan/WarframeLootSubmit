@@ -1,14 +1,6 @@
-FROM node
+FROM golang
 
-ENV PORT 8080
+RUN go get github.com/deepmap/oapi-codegen/cmd/oapi-codegen
 
-EXPOSE 8080
-
-COPY package.json package.json
-RUN npm install
-
-COPY . .
-RUN npm run build
-
-CMD ["node", "dist/"]
+COPY openapi.yaml openapi.yaml
 
