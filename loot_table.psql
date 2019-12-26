@@ -1,0 +1,6 @@
+CREATE TABLE wf_loot_record (
+    username          text,
+    submit_timestamp  timestamp,
+    loot              integer[][],
+    mission_id        integer
+);
