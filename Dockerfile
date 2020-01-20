@@ -1,9 +1,6 @@
 FROM golang
 
-# TODO dep && vendoring
-RUN go get github.com/deepmap/oapi-codegen/cmd/oapi-codegen && \
-    go get github.com/labstack/echo/v4 && \
-    go get github.com/getkin/kin-openapi/openapi3
+COPY vendor/ vendor
 
 COPY openapi.yaml openapi.yaml
 

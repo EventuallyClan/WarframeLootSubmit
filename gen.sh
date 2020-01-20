@@ -1,0 +1,2 @@
+go run github.com/deepmap/oapi-codegen/cmd/oapi-codegen --package=api --generate types -o api/submitter-types.gen.go openapi.yaml
+go run github.com/deepmap/oapi-codegen/cmd/oapi-codegen --package=api --generate server,spec -o api/submitter-server.gen.go openapi.yaml

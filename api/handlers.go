@@ -11,6 +11,20 @@ var (
 	tableName	   = mustGetenv("TABLE_NAME")
 )
 
+type Submitter struct {
+	//Pets   map[int64]Pet
+	//NextId int64
+	//Lock   sync.Mutex
+}
+
+func NewSubmitter() *Submitter {
+	return &Submitter{
+		//Pets:   make(map[int64]Pet),
+		//NextId: 1000,
+	}
+}
+
+
 func AddLootRecord(ctx echo.Context) error {
 	// get date time
 	now = time.Now()
